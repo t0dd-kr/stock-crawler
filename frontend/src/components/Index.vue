@@ -3,18 +3,22 @@
     <Box
       v-on:focused="focus(1)"
       v-bind:info="data1"
+      v-bind:index="1"
     />
     <Box
       v-on:focused="focus(2)"
       v-bind:info="data2"
+      v-bind:index="2"
     />
     <Box
       v-on:focused="focus(3)"
       v-bind:info="data3"
+      v-bind:index="3"
     />
     <Box
       v-on:focused="focus(4)"
       v-bind:info="data4"
+      v-bind:index="4"
     />
     <div class="darken" v-on:click.self="blur" >
       <input class="load" type="number" placeholder="종목 코드를 입력해주세요." maxlength="6" v-model="code" v-on:input="maxLengthCheck" v-on:keydown="onKeyDown"/>
