@@ -1,18 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/userSchema');
+const cheerio = require('cheerio');
+const request = require('request');
 // /* GET users listing. */
 
-router.get('/users', (req, res, next) => {
-  User.find((err, users) => {
+router.get('/info/:id', (req, res, next) => {
+  var url = 'http://companyinfo.stock.naver.com/v1/company/c1010001.aspx?cmp_cd=' + req.params.id
+  request(url, (err, response, html) => {
     if(err) {
-      console.log('load users err');
-      res.send([]);
+      res.send({});
+      throw err;
     }
-    else {
-      res.send(users);
-    }
-  });
+    var $ = cheerio.load(html);
+    res.send({
+      name: $('span.name').html(),
+      code: $('b.num').html()
+    })
+  })
 });
 
 module.exports = router;
