@@ -7,7 +7,10 @@
   },
   "dependencies": {
     "body-parser": "~1.18.2",
+<<<<<<< HEAD
     "charset": "^1.0.1",
+=======
+>>>>>>> 933f7e7fb448d9e2c96eb1e39e7794ed62fcbe31
     "cheerio": "^1.0.0-rc.2",
     "connect-history-api-fallback": "^1.5.0",
     "cookie-parser": "~1.4.3",

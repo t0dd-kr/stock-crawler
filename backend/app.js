@@ -36,6 +36,7 @@ app.use(passport.session()); // 세션 연결
 
 app.use('/', index);
 app.use('/api', api);
+app.use('/api2', api2);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
