@@ -1,12 +1,12 @@
 <template>
-  <div class="box" style="style" @click="toggleTextbox">
+  <div class="box" style="style" @click="toggleTextbox" :style="outline">
     <img src="../assets/add.png" alt="" v-if="this.info === null"/>
     <div class="title" v-else>
       <div class="name">
         {{info.name}}
       </div>
       <div class="code">
-        {{info.code}}
+        ({{info.code}})
       </div>
     </div>
   </div>
@@ -29,6 +29,15 @@ export default {
         this.$emit('focused', this.index)
       }
     }
+  },
+  computed: {
+    outline: function () {
+      if(this.info === null)
+        return 'border: 1rem #DEDEDE dashed';
+      else {
+        return 'border: 1rem #555 solid';
+      }
+    }
   }
 }
 </script>
@@ -39,26 +48,35 @@ export default {
   .box {
     min-height: 50%;
     margin: .05rem;
-    background-color:white;
-    border: 1rem #DEDEDE dashed;
+    background-color: white;
     border-radius: 1rem;
     display: inline-block;
   }
   .box img {
-    position:relative;
-    height:30%;
+    position: relative;
+    height: 30%;
     left: 40%;
     top: 34%;
   }
   .box input {
     position:relative;
-    height:20%;
+    height: 20%;
     width: 60%;
     left: 20%;
     top: 39%;
   }
+  .title {
+    padding: .5rem 1rem .5rem .75rem;
+    font-size: 1.5rem;
+    width: 95%;
+  }
   .name {
-    float:left;
-    padding: 1rem;
+    color: #555;
+    float: left;
+    margin-right: .25rem;
+    font-weight: bold;
+  }
+  .code {
+    color: #BEBEBE;
   }
 </style>
