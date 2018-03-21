@@ -34,8 +34,7 @@ export default {
     outline: function () {
       if (this.info === null) {
         return 'border: 1rem #DEDEDE dashed'
-      }
-      else {
+      } else {
         return 'border: 1rem #555 solid'
       }
     }

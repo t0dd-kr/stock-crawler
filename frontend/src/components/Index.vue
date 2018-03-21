@@ -49,6 +49,7 @@ export default {
       this.activeTransition('.darken', 'darken-active')
       this.activeTransition('.load', 'show')
       this.current = val
+      window.$('input').focus()
     },
     blur: function () {
       this.deactiveTransition('.darken', 'darken-active')
