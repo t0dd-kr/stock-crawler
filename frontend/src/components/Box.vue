@@ -32,10 +32,11 @@ export default {
   },
   computed: {
     outline: function () {
-      if(this.info === null)
-        return 'border: 1rem #DEDEDE dashed';
+      if (this.info === null) {
+        return 'border: 1rem #DEDEDE dashed'
+      }
       else {
-        return 'border: 1rem #555 solid';
+        return 'border: 1rem #555 solid'
       }
     }
   }
