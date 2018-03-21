@@ -83,6 +83,7 @@ export default {
       this.$http.get(`/api/info/${this.code}`)
         .then((res) => {
           if (res.data !== '') {
+            console.log(res.data)
             this['data' + this.current] = res.data
           } else {
             this.$router.push('/')

@@ -107,7 +107,8 @@ router.get('/info/:id', (req, res, next) => {
     var $ = cheerio.load(html);
     res.send({
       name: convertHexNCR2CP($('span.name').html()),
-      code: $('b.num').html()
+      code: $('b.num').html(),
+			per: $('dt.line-left b.num')['1'].children[0].data
     })
   })
 });
