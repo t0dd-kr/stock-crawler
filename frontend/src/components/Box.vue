@@ -1,6 +1,6 @@
 <template>
-  <div class="box" style="style" @click="toggleTextbox" :style="outline">
-    <img src="../assets/add.png" alt="" v-if="this.info === null"/>
+  <div class="box" style="style" :style="outline">
+    <img src="../assets/add.png" alt="" v-if="this.info === null" @click="focus" />
     <div class="title" v-else>
       <div class="name">
         {{info.name}}
@@ -24,7 +24,7 @@ export default {
     info: Object
   },
   methods: {
-    toggleTextbox: function () {
+    focus: function () {
       if (this.info === null) {
         this.$emit('focused', this.index)
       }
