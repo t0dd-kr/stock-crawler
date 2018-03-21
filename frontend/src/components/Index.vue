@@ -6,6 +6,9 @@
       종목 명 : {{data.name}} <br/>
       종목 코드 : {{data.code}} <br/>
     </div>
+    <div class="test_button">
+      <input type="button" name="" value="test_button" v-on:click="button">
+    </div>
   </div>
 </template>
 
@@ -15,7 +18,8 @@ export default {
   data () {
     return {
       code: null,
-      data: null
+      data: null,
+      test_code: 123456
     }
   },
   methods: {
@@ -31,6 +35,11 @@ export default {
         .catch((res) => {
           this.$router.push('/')
         })
+    },
+    button: function () {
+      if (this.code === null) {
+        return alert(this.test_code)
+      }
     }
   }
 }
