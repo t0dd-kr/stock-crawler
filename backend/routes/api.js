@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const cheerio = require('cheerio');
 const request = require('request');
-const Iconv = require('iconv').Iconv;
-const charset = require('charset');
 
 var hexNum = { 0:1, 1:1, 2:1, 3:1, 4:1, 5:1, 6:1, 7:1, 8:1, 9:1,
 				A:1, B:1, C:1, D:1, E:1, F:1,
