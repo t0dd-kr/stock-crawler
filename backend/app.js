@@ -32,7 +32,7 @@ app.use(session({
 app.use(passport.initialize()); // passport 구동
 app.use(passport.session()); // 세션 연결
 
-db();
+// db();
 
 app.use('/', index);
 app.use('/api', api);
