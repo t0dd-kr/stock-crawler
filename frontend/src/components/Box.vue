@@ -1,6 +1,14 @@
 <template>
-  <div class="box" style="style">
-    <img src="../assets/add.png" alt=""/>
+  <div class="box" style="style" @click="toggleTextbox">
+    <img src="../assets/add.png" alt="" v-if="this.info === null"/>
+    <div class="title" v-else>
+      <div class="name">
+        {{info.name}}
+      </div>
+      <div class="code">
+        {{info.code}}
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -12,27 +20,24 @@ export default {
     }
   },
   props: {
-    style: Object
+    index: Number,
+    info: Object
   },
   methods: {
-    load: function () {
-      this.$http.get(`/api/info/${this.code}`)
-        .then((res) => {
-          if (res.data !== '') {
-            this.data = res.data
-          } else {
-            this.$router.push('/')
-          }
-        })
-        .catch((res) => {
-          this.$router.push('/')
-        })
+    toggleTextbox: function () {
+      if (this.info === null) {
+        this.$emit('focused', this.index)
+      }
     }
   }
 }
 </script>
 <style scoped>
+  * {
+    font-family: "Nanum Gothic", sans-serif;
+  }
   .box {
+    min-height: 50%;
     margin: .05rem;
     background-color:white;
     border: 1rem #DEDEDE dashed;
@@ -44,5 +49,16 @@ export default {
     height:30%;
     left: 40%;
     top: 34%;
+  }
+  .box input {
+    position:relative;
+    height:20%;
+    width: 60%;
+    left: 20%;
+    top: 39%;
+  }
+  .name {
+    float:left;
+    padding: 1rem;
   }
 </style>
