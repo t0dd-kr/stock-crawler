@@ -66,9 +66,11 @@ export default {
     top: 39%;
   }
   .title {
-    padding: .5rem 1rem .5rem .75rem;
+    margin-left: .5rem;
+    padding: .5rem 1rem .5rem .25rem;
     font-size: 1.5rem;
     width: 95%;
+    border-bottom: 1px solid #CCC;
   }
   .name {
     color: #555;
