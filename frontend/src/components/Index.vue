@@ -1,28 +1,24 @@
 <template>
   <div class="index">
-    <input type="text" name="" value="" v-model="code"/>
-    <button type="button" name="button" v-on:click="load">불러오기</button>
-    <div class="" v-if="data">
-      종목 명 : {{data.name}} <br/>
-      종목 코드 : {{data.code}} <br/>
-    </div>
-    <div class="submit_check">
-
-    </div>
-    <div class="test_button">
-      <input type="button" name="" value="test_button" v-on:click="button">
-    </div>
+    <Box
+      v-for="i in 4"
+      v-bind:key="i"
+      v-bind:index="i"
+    />
   </div>
 </template>
 
 <script>
+import Box from './Box'
 export default {
   name: 'Index',
+  components: {
+    Box
+  },
   data () {
     return {
       code: '005930',
-      data: null,
-      test_code: 123456
+      data: null
     }
   },
   methods: {
@@ -59,4 +55,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .index {
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    grid-auto-rows: minmax(300px, auto);
+  }
 </style>
