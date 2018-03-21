@@ -1,8 +1,6 @@
 <template>
-  <div class="box">
-    <div class="btn-load" v-if="!isLoaded">
-
-    </div>
+  <div class="box" style="style">
+    <img src="../assets/add.png" alt=""/>
   </div>
 </template>
 <script>
@@ -14,7 +12,22 @@ export default {
     }
   },
   props: {
-    index: Number
+    style: Object
+  },
+  methods: {
+    load: function () {
+      this.$http.get(`/api/info/${this.code}`)
+        .then((res) => {
+          if (res.data !== '') {
+            this.data = res.data
+          } else {
+            this.$router.push('/')
+          }
+        })
+        .catch((res) => {
+          this.$router.push('/')
+        })
+    }
   }
 }
 </script>
@@ -25,5 +38,11 @@ export default {
     border: 1rem #DEDEDE dashed;
     border-radius: 1rem;
     display: inline-block;
+  }
+  .box img {
+    position:relative;
+    height:30%;
+    left: 40%;
+    top: 34%;
   }
 </style>

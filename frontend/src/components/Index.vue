@@ -22,19 +22,6 @@ export default {
     }
   },
   methods: {
-    load: function () {
-      this.$http.get(`/api/info/${this.code}`)
-        .then((res) => {
-          if (res.data !== '') {
-            this.data = res.data
-          } else {
-            this.$router.push('/')
-          }
-        })
-        .catch((res) => {
-          this.$router.push('/')
-        })
-    },
     button: function () {
       if (this.code === null) {
         return alert(this.test_code)
