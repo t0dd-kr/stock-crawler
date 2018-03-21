@@ -1,4 +1,4 @@
-const DB_NAME = 'intro'
+const DB_NAME = 'stock-crawler'
 var mongoose = require('mongoose');
 var dbconnection = function() {
 
