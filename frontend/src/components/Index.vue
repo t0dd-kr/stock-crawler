@@ -20,7 +20,7 @@ export default {
   name: 'Index',
   data () {
     return {
-      code: null,
+      code: '005930',
       data: null,
       test_code: 123456
     }
